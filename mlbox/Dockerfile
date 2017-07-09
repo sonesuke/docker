@@ -4,6 +4,8 @@ RUN apt-get update && apt-get install -y build-essential python-dev python-tk py
 RUN pip install --upgrade pip && pip install pip cmake jupyter
 ADD https://github.com/AxeldeRomblay/mlbox/tarball/master ./master
 RUN cd master/AxeldeRomblay-MLBox-2e5e8eb/python-package/ && python setup.py install
+RUN rm -rf master
+RUN rm -rf /root/.cache/pip
 
 EXPOSE 8888
 
