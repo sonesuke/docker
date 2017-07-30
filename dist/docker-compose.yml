@@ -1,0 +1,11 @@
+
+
+
+ubuntu:
+        image: ubuntu
+        links:
+                - slave:slave
+        tty: true
+
+slave:
+        build: slave
