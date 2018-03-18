@@ -1,0 +1,31 @@
+version: '2'
+services:
+    master:
+        build: ./hadoop
+        container_name: master
+        hostname: master
+        volumes:
+            - "$PWD:/host"
+        user: root
+        ports:
+            - 8088:8088
+        tty: true
+        command: ["/bin/bash"]
+    node1:
+        build: ./hadoop
+        container_name: node1
+        hostname: node1
+        volumes:
+            - "$PWD:/host"
+        user: root
+        tty: true
+        command: ["/bin/bash"]
+    node2:
+        build: ./hadoop
+        container_name: node2
+        hostname: node2
+        volumes:
+            - "$PWD:/host"
+        user: root
+        tty: true
+        command: ["/bin/bash"]
