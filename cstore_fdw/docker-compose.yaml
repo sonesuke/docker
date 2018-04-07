@@ -1,0 +1,17 @@
+
+version: '2'
+services:
+    postgres:
+        build: ./cstore_fdw
+        container_name: postgres
+        hostname: postgres
+        volumes:
+            - "$PWD/data:/data"
+    client:
+        build: ./cstore_fdw
+        container_name: client
+        hostname: client
+        volumes:
+            - "$PWD/data:/data"
+        tty: true
+        command: ["/bin/bash"]
